@@ -1,0 +1,23 @@
+{# src/Blogger/BlogBundle/Resources/views/layout.html.twig #}
+{% extends 'CgurubestBlogBundle::main.html.twig' %}
+
+{% block title %}Contact{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Contact symblog</h1>
+    </header>
+
+    <p>Want to contact symblog?</p>
+
+    {{ form_start(form, { 'action': path('cgurubest_blog_post'), 'method': 'POST', 'attr': {'class': 'blogger'} }) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.title) }}
+    {{ form_row(form.body) }}
+
+    {{ form_rest(form) }}
+
+    <input type="submit" value="Submit" />
+
+{% endblock %}

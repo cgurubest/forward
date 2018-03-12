@@ -1,0 +1,12 @@
+{# src/Blogger/BlogBundle/Resources/views/layout.html.twig #}
+{% extends 'CgurubestBlogBundle::main.html.twig' %}
+
+{% block body %}
+    <h1>Контролирование документов:</h1>
+    <h2>Выберите пользователя:</h2>
+    <ul>
+        {% for user in users %}
+            <li style="margin-top: 10px">- <a href="{{ path('forward_doc_list',{'user_id': user.id}) }}">{{ user.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

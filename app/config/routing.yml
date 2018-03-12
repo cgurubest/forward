@@ -1,0 +1,4 @@
+cgurubest_blog:
+    resource: "@CgurubestBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+

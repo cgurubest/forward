@@ -1,0 +1,48 @@
+cgurubest_blog_index:
+    path:     /forward
+    defaults: { _controller: CgurubestBlogBundle:Blog:index }
+    requirements:
+             methods:  GET
+
+cgurubest_blog_about:
+    path:   /about
+    defaults: { _controller: CgurubestBlogBundle:Blog:about }
+    requirements:
+            methods:  GET
+
+
+cgurubest_blog_contact:
+    path:   /contact
+    defaults: { _controller: CgurubestBlogBundle:Blog:contact }
+    requirements:
+            methods:  GET|POST
+
+cgurubest_blog_post:
+    path:   /post
+    defaults: { _controller: CgurubestBlogBundle:Blog:addPost }
+    requirements:
+            methods:  GET|POST
+
+forward:
+    path: /
+    defaults: {_controller: CgurubestBlogBundle:Forward:index}
+    requirements:
+                methods:  GET
+
+forward_doc_list:
+    path: /doc_list/{user_id}
+    defaults: {_controller: CgurubestBlogBundle:Forward:docList}
+    requirements:
+                methods:  GET
+
+forward_doc_add:
+    path: /doc_list/{user_id}/add/{doc_id}
+    defaults: {_controller: CgurubestBlogBundle:Forward:docAdd}
+    requirements:
+                methods:  GET
+
+forward_doc_del:
+    path: path: /doc_list/{user_id}/del/{doc_id}
+    defaults: {_controller: CgurubestBlogBundle:Forward:docDel}
+    requirements:
+                methods:  GET

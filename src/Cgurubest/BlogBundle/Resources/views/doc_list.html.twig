@@ -1,0 +1,34 @@
+{# src/Blogger/BlogBundle/Resources/views/layout.html.twig #}
+{% extends 'CgurubestBlogBundle::main.html.twig' %}
+
+{% block body %}
+
+    <h1>{{ user.name }}</h1>
+    <span style="font-size: 20px;"><i>Контролируемые документы:</i></span>
+
+
+    {% if docs_control is defined %}
+
+        <ul>
+            {% for doc in docs_control %}
+                <li style="margin-top: 10px; font-size: 20px">- {{ doc.name|e }} <a href="{{ path('forward_doc_del',{'user_id' : user.id, 'doc_id' : doc.id}) }}"><span style="font-weight: bold; font-size: 20px">"-"</span></a></li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <div class="alert alert-danger" role="alert" style="margin-top: 20px">
+            <strong>Этому пользоватлю контроль за документами не назначен.</strong>
+        </div>
+    {% endif %}
+
+
+    <hr style="margin-top: 160px">
+    <p>Установить контроль:</p>
+    <p>Для добовления контроля за определенным типом документов,
+        <br>выберите тип документа и нажмите кнопку <span style="font-weight: bold; font-size: 20px">"+"</span></p>
+    <ul>
+        {% for doc in docs_type %}
+            <li style="margin-top: 10px; font-size: 20px">- {{ doc.name }} <a href="{{ path('forward_doc_add',{'doc_id' : doc.id, 'user_id' : user.id}) }}"><span style="font-weight: bold; font-size: 20px">"+"</span></a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
